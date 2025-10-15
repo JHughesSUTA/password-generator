@@ -35,4 +35,5 @@
 
 html {
   font-family: var(--font-mono);
+  background-color: black;
 }
