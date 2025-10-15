@@ -1,0 +1,17 @@
+import CharacterLengthControl from "./CharacterLengthControl";
+import PasswordOptions from "./PasswordOptions";
+import PasswordStrengthDisplay from "./PasswordStrengthDisplay";
+import GenerateButton from "./GenerateButton";
+
+const ControlsSection = () => {
+  return (
+    <section className="px-8 pt-6 pb-[41px] bg-gray-800 mt-4">
+      <CharacterLengthControl />
+      <PasswordOptions />
+      <PasswordStrengthDisplay />
+      <GenerateButton />
+    </section>
+  );
+};
+
+export default ControlsSection;
