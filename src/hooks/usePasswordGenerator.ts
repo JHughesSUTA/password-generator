@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { shuffle, getRandom } from "../utilities";
-import type { PasswordOptions } from "../types";
+import { usePasswordStore } from "../store";
+import { useCallback } from "react";
 
 const lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
 const upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -8,16 +8,10 @@ const numberChars = "0123456789";
 const symbolChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
 export const usePasswordGenerator = () => {
-  const [password, setPassword] = useState<string>("");
-  const [options, setOptions] = useState<PasswordOptions>({
-    includeUppercase: false,
-    includeLowercase: true,
-    includeNumbers: true,
-    includeSymbols: false,
-    length: 8,
-  });
+  const options = usePasswordStore((state) => state.options);
+  const setPassword = usePasswordStore((state) => state.setPassword);
 
-  const generatePassword = () => {
+  const generatePassword = useCallback(() => {
     let passwordBuild = "";
     const requiredChars = [];
     let allSelectedChars = "";
@@ -39,6 +33,12 @@ export const usePasswordGenerator = () => {
       allSelectedChars += symbolChars;
     }
 
+    // Fallback if no character types are selected
+    // if (allSelectedChars === "") {
+    //   allSelectedChars = lowerCaseChars;
+    //   requiredChars.push(getRandom(lowerCaseChars));
+    // }
+
     for (const char of requiredChars) {
       passwordBuild += char;
     }
@@ -51,7 +51,7 @@ export const usePasswordGenerator = () => {
 
     passwordBuild = shuffle(passwordBuild);
     setPassword(passwordBuild);
-  };
+  }, [options, setPassword]);
 
-  return { password, generatePassword, options, setOptions };
+  return { generatePassword };
 };

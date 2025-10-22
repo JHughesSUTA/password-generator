@@ -1,14 +1,12 @@
-import type { PasswordOptions } from "../types";
+import { usePasswordStore } from "../store";
 
-type PasswordInclusionsControlProps = {
-  options: PasswordOptions;
-  setOptions: (options: PasswordOptions) => void;
-};
+const PasswordInclusionsControl = () => {
+  const options = usePasswordStore((state) => state.options);
+  const toggleUppercase = usePasswordStore((state) => state.toggleUppercase);
+  const toggleLowercase = usePasswordStore((state) => state.toggleLowercase);
+  const toggleNumbers = usePasswordStore((state) => state.toggleNumbers);
+  const toggleSymbols = usePasswordStore((state) => state.toggleSymbols);
 
-const PasswordInclusionsControl = ({
-  options,
-  setOptions,
-}: PasswordInclusionsControlProps) => {
   return (
     <div>
       <div className="mb-4">
@@ -17,12 +15,7 @@ const PasswordInclusionsControl = ({
           id="uppercase"
           checked={options.includeUppercase}
           className="mr-4"
-          onChange={() =>
-            setOptions({
-              ...options,
-              includeUppercase: !options.includeUppercase,
-            })
-          }
+          onChange={toggleUppercase}
         />
         <label
           htmlFor="uppercase"
@@ -36,12 +29,7 @@ const PasswordInclusionsControl = ({
           type="checkbox"
           id="lowercase"
           checked={options.includeLowercase}
-          onChange={() =>
-            setOptions({
-              ...options,
-              includeLowercase: !options.includeLowercase,
-            })
-          }
+          onChange={toggleLowercase}
           className="mr-4"
         />
         <label
@@ -56,9 +44,7 @@ const PasswordInclusionsControl = ({
           type="checkbox"
           id="numbers"
           checked={options.includeNumbers}
-          onChange={() =>
-            setOptions({ ...options, includeNumbers: !options.includeNumbers })
-          }
+          onChange={toggleNumbers}
           className="mr-4"
         />
         <label
@@ -73,9 +59,7 @@ const PasswordInclusionsControl = ({
           type="checkbox"
           id="symbols"
           checked={options.includeSymbols}
-          onChange={() =>
-            setOptions({ ...options, includeSymbols: !options.includeSymbols })
-          }
+          onChange={toggleSymbols}
           className="mr-4"
         />
         <label

@@ -1,17 +1,12 @@
 import type { ChangeEvent } from "react";
-import type { PasswordOptions } from "../types";
+import { usePasswordStore } from "../store";
 
-type CharacterLengthControlProps = {
-  options: PasswordOptions;
-  setOptions: (options: PasswordOptions) => void;
-};
+const CharacterLengthControl = () => {
+  const options = usePasswordStore((state) => state.options);
+  const setLength = usePasswordStore((state) => state.setLength);
 
-const CharacterLengthControl = ({
-  options,
-  setOptions,
-}: CharacterLengthControlProps) => {
   const handleRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setOptions({ ...options, length: Number(e.target.value) });
+    setLength(Number(e.target.value));
   };
 
   return (

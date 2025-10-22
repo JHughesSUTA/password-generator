@@ -1,10 +1,9 @@
+import { usePasswordGenerator } from "../hooks/usePasswordGenerator";
 import ArrowIcon from "./icons/ArrowIcon";
 
-type GenerateButtonProps = {
-  generatePassword: () => void;
-};
+const GenerateButton = () => {
+  const { generatePassword } = usePasswordGenerator();
 
-const GenerateButton = ({ generatePassword }: GenerateButtonProps) => {
   return (
     <button
       onClick={() => generatePassword()}

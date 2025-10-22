@@ -10,6 +10,6 @@ const PasswordStrengthDisplay = () => {
       </div>
     </div>
   );
-}
+};
 
-export default PasswordStrengthDisplay
+export default PasswordStrengthDisplay;

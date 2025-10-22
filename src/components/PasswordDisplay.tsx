@@ -1,10 +1,8 @@
 import CopyIcon from "./icons/CopyIcon";
+import { usePasswordStore } from "../store";
 
-type PasswordProps = {
-  password: string;
-};
-
-const PasswordDisplay = ({ password }: PasswordProps) => {
+const PasswordDisplay = () => {
+  const password = usePasswordStore((state) => state.password);
   return (
     <div className="bg-gray-800 p-4 flex justify-between">
       <span
@@ -12,7 +10,7 @@ const PasswordDisplay = ({ password }: PasswordProps) => {
           password ? "text-gray-200" : "text-gray-700"
         }`}
       >
-        {password ? password : "P4$5W0rD!"}
+        {password || "P4$5W0rD!"}
       </span>
       <button className="cursor-pointer">
         <CopyIcon />
