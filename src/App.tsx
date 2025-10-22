@@ -3,7 +3,8 @@ import ControlsSection from "./components/ControlsSection";
 import { usePasswordGenerator } from "./hooks/usePasswordGenerator";
 
 function App() {
-  const { password, generatePassword } = usePasswordGenerator();
+  const { password, generatePassword, options, setOptions } =
+    usePasswordGenerator();
 
   return (
     <div className="flex justify-center items-center min-h-dvh">
@@ -12,7 +13,11 @@ function App() {
           Password Generator
         </h1>
         <PasswordDisplay password={password} />
-        <ControlsSection generatePassword={generatePassword} />
+        <ControlsSection
+          generatePassword={generatePassword}
+          options={options}
+          setOptions={setOptions}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,10 @@
 import ArrowIcon from "./icons/ArrowIcon";
 
-const GenerateButton = ({ generatePassword }) => {
+type GenerateButtonProps = {
+  generatePassword: () => void;
+};
+
+const GenerateButton = ({ generatePassword }: GenerateButtonProps) => {
   return (
     <button
       onClick={() => generatePassword()}
