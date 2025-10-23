@@ -1,4 +1,4 @@
-import { shuffle, getRandom } from "../utilities";
+import { shuffle, getRandom, calculatePasswordStrength } from "../utilities";
 import { usePasswordStore } from "../store";
 import { useCallback } from "react";
 
@@ -10,6 +10,7 @@ const symbolChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
 export const usePasswordGenerator = () => {
   const options = usePasswordStore((state) => state.options);
   const setPassword = usePasswordStore((state) => state.setPassword);
+  const setStrength = usePasswordStore((state) => state.setStrength);
 
   const generatePassword = useCallback(() => {
     let passwordBuild = "";
@@ -51,7 +52,9 @@ export const usePasswordGenerator = () => {
 
     passwordBuild = shuffle(passwordBuild);
     setPassword(passwordBuild);
-  }, [options, setPassword]);
+
+    setStrength(calculatePasswordStrength(options));
+  }, [options, setPassword, setStrength]);
 
   return { generatePassword };
 };

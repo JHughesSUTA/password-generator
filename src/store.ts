@@ -5,10 +5,12 @@ interface PasswordStore {
   // State
   password: string;
   options: PasswordOptions;
+  strength: number | undefined;
 
   // State setters
   setPassword: (password: string) => void;
   setOptions: (options: PasswordOptions) => void;
+  setStrength: (strength: number) => void;
   toggleUppercase: () => void;
   toggleLowercase: () => void;
   toggleNumbers: () => void;
@@ -26,10 +28,12 @@ export const usePasswordStore = create<PasswordStore>((set) => ({
     includeSymbols: false,
     length: 8,
   },
+  strength: undefined,
 
   // State setters only - no business logic
   setPassword: (password) => set({ password }),
   setOptions: (options) => set({ options }),
+  setStrength: (strength) => set({ strength }),
 
   toggleUppercase: () =>
     set((state) => ({
