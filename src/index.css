@@ -37,3 +37,33 @@ html {
   font-family: var(--font-mono);
   background-color: black;
 }
+
+/* Custom slider */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: var(--color-gray-200);
+  cursor: pointer;
+  border: 2px solid var(--color-gray-200);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: var(--color-gray-850);
+  border: 2px solid var(--color-green);
+}
+
+.slider::-moz-range-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: var(--color-gray-200);
+  cursor: pointer;
+  border: 2px solid var(--color-gray-200);
+}
+
+.slider::-moz-range-thumb:hover {
+  background: var(--color-gray-850);
+  border: 2px solid var(--color-green);
+}

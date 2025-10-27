@@ -11,7 +11,7 @@ const CharacterLengthControl = () => {
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center mb-4">
         <label className="text-preset-4 text-gray-200" htmlFor="">
           Character Length
         </label>
@@ -19,6 +19,7 @@ const CharacterLengthControl = () => {
       </div>
       <input
         id="character-length-slider"
+        className="w-full h-2 bg-gray-850 appearance-none cursor-pointer slider focus:outline-none"
         name="character-length"
         type="range"
         role="slider"
@@ -28,6 +29,11 @@ const CharacterLengthControl = () => {
         step="1"
         value={options.length}
         onChange={handleRangeChange}
+        style={{
+          background: `linear-gradient(to right, #A4FFAF 0%, #A4FFAF ${
+            ((options.length - 4) / 16) * 100
+          }%, #18171f ${((options.length - 4) / 16) * 100}%, #18171f 100%)`,
+        }}
       />
     </div>
   );
