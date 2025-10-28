@@ -13,14 +13,14 @@ const PasswordStrengthDisplay = () => {
     strengthAttributes[passwordStrength as keyof typeof strengthAttributes];
 
   return (
-    <div className="p-4 bg-gray-850 mt-8 flex justify-between items-center">
-      <span className="uppercase text-preset-4 text-gray-600">strength</span>
+    <div className="p-4 bg-gray-850 mt-8 flex justify-between items-center md:py-5 md:px-[31.75px]">
+      <span className="uppercase text-preset-4 text-gray-600 md:text-preset-3">strength</span>
       <div className="flex items-center">
-        <span className="uppercase text-gray-200">
+        <span className="uppercase text-gray-200 text-preset-3 md:text-preset-2 md:leading-[24px]">
           {currentAttributes?.label}
         </span>
         {!passwordStrength ? (
-          <div className="flex gap-1">
+          <div className="flex gap-2">
             {[1, 2, 3, 4].map((index) => (
               <span
                 key={index}
@@ -29,11 +29,11 @@ const PasswordStrengthDisplay = () => {
             ))}
           </div>
         ) : (
-          <div className="flex ml-2 gap-1">
+          <div className="flex ml-2 gap-2 ">
             {[1, 2, 3, 4].map((barIndex) => (
               <span
                 key={barIndex}
-                className={`h-[28px] w-[10px] border-[2px] inline-block transition-colors duration-200 ${
+                className={`h-[28px] w-[10px] border-[2px] inline-block  ${
                   passwordStrength >= barIndex
                     ? currentAttributes.styles
                     : "border-gray-200"

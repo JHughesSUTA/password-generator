@@ -12,10 +12,13 @@ const CharacterLengthControl = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
-        <label className="text-preset-4 text-gray-200" htmlFor="">
+        <label
+          className="text-preset-4 text-gray-200 md:text-preset-3"
+          htmlFor=""
+        >
           Character Length
         </label>
-        <span className="text-preset-2 text-green">{options.length}</span>
+        <span className="text-preset-2 text-green md:text-preset-1">{options.length}</span>
       </div>
       <input
         id="character-length-slider"

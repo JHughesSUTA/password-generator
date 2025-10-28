@@ -5,7 +5,7 @@ import GenerateButton from "./GenerateButton";
 
 const ControlsSection = () => {
   return (
-    <section className="px-8 pt-6 pb-[41px] bg-gray-800 mt-4">
+    <section className="p-4 bg-gray-800 mt-4 md:mt-6 md:px-8 md:pt-6 md:pb-[41px]">
       <CharacterLengthControl />
       <PasswordInclusionsControl />
       <PasswordStrengthDisplay />

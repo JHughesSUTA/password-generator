@@ -9,9 +9,9 @@ const PasswordDisplay = () => {
   const displayedPassword = useDisplayedPassword(password, copied);
 
   return (
-    <div className="bg-gray-800 p-4 flex justify-between relative">
+    <div className="bg-gray-800 p-4 flex justify-between relative md:py-[19px] md:px-8">
       <span
-        className={`text-preset-2 ${
+        className={`text-preset-2 md:text-preset-1 ${
           password ? "text-gray-200" : "text-gray-700"
         }`}
       >
@@ -21,19 +21,17 @@ const PasswordDisplay = () => {
         onClick={handleCopy}
         disabled={!password}
         className={`group transition-opacity ${
-          !password
-            ? "opacity-50 cursor-not-allowed"
-            : "hover:opacity-80 cursor-pointer"
+          !password ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
         }`}
         title={copied ? "Copied!" : "Copy password"}
       >
         <CopyIcon passwordActive={password !== ""} />
-        {copied && (
-          <span className="text-preset-4 uppercase text-green bg-gray-800 absolute right-[45px] top-1/2 -translate-y-1/2">
-            Copied
-          </span>
-        )}
       </button>
+      {copied && (
+        <span className="text-preset-4 uppercase text-green bg-gray-800 absolute right-[45px] top-1/2 -translate-y-1/2 md:text-preset-3 md:right-[68px]">
+          Copied
+        </span>
+      )}
     </div>
   );
 };

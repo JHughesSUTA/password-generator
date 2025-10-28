@@ -7,7 +7,7 @@ const GenerateButton = () => {
   return (
     <button
       onClick={() => generatePassword()}
-      className="group border-2 border-transparent transition bg-green w-full mt-8 py-[18px] text-gray-800 text-preset-4 uppercase font-bold cursor-pointer hover:text-green hover:bg-gray-800 hover:border-green"
+      className="group border-2 border-transparent transition bg-green w-full mt-8 py-[18px] text-gray-800 text-preset-4 uppercase font-bold cursor-pointer hover:text-green hover:bg-gray-800 hover:border-green md:text-preset-3"
     >
       Generate
       <span className="inline-block ml-6">
