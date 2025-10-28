@@ -14,7 +14,7 @@ const PasswordInclusionsControl = () => {
           type="checkbox"
           id="uppercase"
           checked={options.includeUppercase}
-          className="custom-checkbox mr-4"
+          className="custom-checkbox mr-4 md:mr-6"
           onChange={toggleUppercase}
         />
         <label
@@ -30,7 +30,7 @@ const PasswordInclusionsControl = () => {
           id="lowercase"
           checked={options.includeLowercase}
           onChange={toggleLowercase}
-          className="custom-checkbox mr-4"
+          className="custom-checkbox mr-4 md:mr-6"
         />
         <label
           htmlFor="lowercase"
@@ -45,7 +45,7 @@ const PasswordInclusionsControl = () => {
           id="numbers"
           checked={options.includeNumbers}
           onChange={toggleNumbers}
-          className="custom-checkbox mr-4"
+          className="custom-checkbox mr-4 md:mr-6"
         />
         <label
           htmlFor="numbers"
@@ -60,7 +60,7 @@ const PasswordInclusionsControl = () => {
           id="symbols"
           checked={options.includeSymbols}
           onChange={toggleSymbols}
-          className="custom-checkbox mr-4"
+          className="custom-checkbox mr-4 md:mr-6"
         />
         <label
           htmlFor="symbols"

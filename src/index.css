@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -17,15 +17,15 @@
   --text-preset-1: 32px;
   --text-preset-1--line-height: 42px;
   --text-preset-1--font-weight: 700;
-  
+
   --text-preset-2: 24px;
   --text-preset-2--line-height: 32px;
   --text-preset-2--font-weight: 700;
-  
+
   --text-preset-3: 18px;
   --text-preset-3--line-height: 24px;
   --text-preset-3--font-weight: 700;
-  
+
   --text-preset-4: 16px;
   --text-preset-4--line-height: 20px;
   --text-preset-4--font-weight: 700;
@@ -79,7 +79,6 @@ html {
   background-color: var(--color-gray-800);
   cursor: pointer;
   position: relative;
-  margin-right: 16px;
 }
 
 .custom-checkbox:hover {
