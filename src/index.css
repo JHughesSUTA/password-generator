@@ -70,6 +70,27 @@ html {
   border: 2px solid var(--color-green);
 }
 
+.slider:focus {
+  outline: none;
+}
+
+.slider:focus-visible {
+  /* outline: 2px solid var(--color-green);
+  outline-offset: 2px; */
+  box-shadow: 0 0 0 2px var(--color-gray-800), 0 0 0 4px var(--color-green);
+}
+
+/* For older browsers that don't support :focus-visible */
+.js-focus-visible .slider:focus:not(.focus-visible) {
+  outline: none;
+}
+
+.js-focus-visible .slider.focus-visible {
+  /* outline: 2px solid var(--color-green);
+  outline-offset: 2px; */
+  box-shadow: 0 0 0 2px var(--color-gray-800), 0 0 0 4px var(--color-green);
+}
+
 /* Custom checkbox styles */
 .custom-checkbox {
   appearance: none;
@@ -101,8 +122,8 @@ html {
   justify-content: center;
 }
 
-/* Focus styles for accessibility */
-.custom-checkbox:focus {
-  /* outline: 2px solid var(--color-green); */
+
+.custom-checkbox:focus-visible {
+  outline: 2px solid var(--color-green);
   outline-offset: 2px;
 }
